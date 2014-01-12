@@ -6,3 +6,8 @@ description      "Jenkins on ci.typo3.org"
 version          "0.1.1"
 
 depends "jenkins", "= 1.2.2"
+depends "php"
+depends "maven"
+depends "sonar"
+depends "t3-mysql"
+depends "redis"
