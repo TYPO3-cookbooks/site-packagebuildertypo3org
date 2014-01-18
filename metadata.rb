@@ -5,7 +5,7 @@ license          "Apache 2.0"
 description      "Jenkins on ci.typo3.org"
 version          "0.1.1"
 
-depends "jenkins", "= 1.2.2"
+depends "jenkins", "= 2.0.0"
 depends "php"
 depends "maven"
 depends "sonar"
