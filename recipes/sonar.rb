@@ -22,3 +22,32 @@ include_recipe "sonar::proxy_nginx"
 
 include_recipe "t3-mysql::server"
 include_recipe "sonar::database_mysql"
+
+#####################
+# Plugins
+#####################
+
+# there are two different types of URL (the /#{name}/ in between for the first block)
+{
+  "php"          => "1.0",
+  "scm-activity" => "1.3",
+}.each do |name, version|
+  sonar_plugin "sonar-#{name}-plugin" do
+    version version
+    url "http://repository.codehaus.org/org/codehaus/sonar-plugins/#{name}/sonar-#{name}-plugin/#{version}/sonar-#{name}-plugin-#{version}.jar"
+  end
+end
+
+{
+  "motion-chart" => "1.3",
+  "timeline"     => "1.2",
+  "xml"          => "0.2",
+  "javascript"   => "0.4",
+  "tab-metrics"  => "1.0.1",
+  "web"          => "1.1",
+}.each do |name, version|
+  sonar_plugin "sonar-#{name}-plugin" do
+    version version
+    url "http://repository.codehaus.org/org/codehaus/sonar-plugins/sonar-#{name}-plugin/#{version}/sonar-#{name}-plugin-#{version}.jar"
+  end
+end
